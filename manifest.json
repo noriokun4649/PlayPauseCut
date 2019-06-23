@@ -1,0 +1,61 @@
+{
+    "manifest_version": 2,
+    "name": "動画再生・一時停止ショートカット",
+    "short_name": "PlayPauseCut",
+    "description": "YouTube、ニコニコ動画、dアニメ、Amazonプライムビデオ...etc.などの再生・一時停止をChromeのショートカットキーでコントロール出来るようにする拡張機能です。",
+    "version": "1.0.2",
+    "icons": {
+        "128": "icon.png"
+    },
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": true
+    },
+    "permissions": [
+        "tabs"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.youtube.com/*",
+                "https://www.nicovideo.jp/*",
+                "https://www.amazon.co.jp/*",
+                "https://anime.dmkt-sp.jp/animestore/sc_d_pc*",
+                "https://www.bilibili.com/video/*",
+                "https://gyao.yahoo.co.jp/title/*",
+                "https://fod.fujitv.co.jp/*",
+                "https://www.happyon.jp/*",
+                "https://www.paravi.jp/watch/*",
+                "https://www.netflix.com/*",
+                "https://video.unext.jp/*"
+            ],
+            "js": [
+                "content_back.js"
+            ]
+        }
+    ],
+    "commands": {
+        "toggle-play-pause-all": {
+            "description": "すべて再生・一時停止(トグル)",
+            "global": true
+        },
+        "toggle-pause-all": {
+            "description": "すべて一時停止",
+            "global": true
+        },
+        "toggle-play-all": {
+            "description": "すべて再生",
+            "global": true
+        },
+        "toggle-play-pause-active": {
+            "description": "最後に使用したウィンドウのみ再生・一時停止(トグル)",
+            "global": true
+        },
+        "toggle-play-pause-pin": {
+            "description": "ピン止めしてるタブのみ再生・一時停止(トグル)",
+            "global": true
+        }
+    }
+}
